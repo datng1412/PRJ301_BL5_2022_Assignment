@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Ngo Tung Son
+ * @author Tom
  */
 public class DBContext {
     protected Connection connection;
@@ -21,7 +21,7 @@ public class DBContext {
         try {
             String user = "sa";
             String pass = "Tiendat1";
-            String url = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=PRJ301_ChamCong_Real";
+            String url = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=PRJ301_ChamCong_Real_1";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             connection = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException ex) {
