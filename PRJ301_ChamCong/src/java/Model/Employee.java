@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 /**
  *
- * @author Ngo Tung Son
+ * @author Tom
  */
 public class Employee {
 
@@ -20,6 +20,15 @@ public class Employee {
     private String contractType;
     private String phone;
     private float salary;
+    
+    public float getTotalLeaves()
+    {
+        float sum = 0;
+        for (RequestToLeave r : reqToLeaves) {
+            sum += r.getDays();
+        }
+        return sum;
+    }
     
     public float getCurrentYear() {
         return DateTimeHelper.getTodayYear();
@@ -90,7 +99,7 @@ public class Employee {
     }
 
     public String getDeptName() {
-        return getDepartment().getDpname();
+        return department.getDpname();
     }
 
     public Department getDepartment() {
@@ -103,6 +112,7 @@ public class Employee {
     private ArrayList<TimeSheet> timesheets = new ArrayList<>();
     private ArrayList<AnnualLeave> annualLeaves = new ArrayList<>();
     private ArrayList<RequestToLeave> reqToLeaves = new ArrayList<>();
+    
     private Team team;
     private Department department;
 
@@ -114,8 +124,8 @@ public class Employee {
         return sum;
     }
 
-    public int getWorkingDays() {
-        return timesheets.size();
+    public float getWorkingDays() {
+        return getWorkingHours()/8;
     }
 
     public int getId() {

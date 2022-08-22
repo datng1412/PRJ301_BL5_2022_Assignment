@@ -4,16 +4,28 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Tom
  */
 public class Symbol {
     private int sid;
-    private String type;
-    private String symbol;
-    private String desc;
-    private float value;
+    private String sname;
+    private String allday;
+    private String halfday;
+    private String saturday;
+    private String description;
+    private ArrayList<RequestToLeave> requests = new ArrayList<>();
+
+    public ArrayList<RequestToLeave> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(ArrayList<RequestToLeave> requests) {
+        this.requests = requests;
+    }
 
     public int getSid() {
         return sid;
@@ -23,36 +35,45 @@ public class Symbol {
         this.sid = sid;
     }
 
-    public String getType() {
-        return type;
+    public String getSname() {
+        return sname;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setSname(String sname) {
+        this.sname = sname;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public String getAllday() {
+        return allday;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setAllday(String allday) {
+        this.allday = allday;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getHalfday() {
+        return halfday;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setHalfday(String halfday) {
+        this.halfday = halfday;
     }
 
-    public float getValue() {
-        return value;
+    public String getSaturday() {
+        return saturday;
     }
 
-    public void setValue(float value) {
-        this.value = value;
+    public void setSaturday(String saturday) {
+        this.saturday = saturday;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     
 }

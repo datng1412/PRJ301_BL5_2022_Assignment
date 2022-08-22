@@ -13,7 +13,9 @@ public class AnnualLeave {
     private int year;
     private Employee eid;
     private int aid;
-    private float annualLeave;
+    private float annualLeave1;
+        private float annualLeave2;
+
     
     public int getAid() {
         return aid;
@@ -39,12 +41,20 @@ public class AnnualLeave {
         this.eid = eid;
     }
 
-    public float getAnnualLeave() {
-        return annualLeave;
+    public float getAnnualLeave1() {
+        return annualLeave1;
     }
 
-    public void setAnnualLeave(float annualLeave) {
-        this.annualLeave = annualLeave;
+    public void setAnnualLeave1(float annualLeave1) {
+        this.annualLeave1 = annualLeave1;
+    }
+
+    public float getAnnualLeave2() {
+        return annualLeave2;
+    }
+
+    public void setAnnualLeave2(float annualLeave2) {
+        this.annualLeave2 = annualLeave2;
     }
     
 }

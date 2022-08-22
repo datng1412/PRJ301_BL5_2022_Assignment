@@ -4,6 +4,7 @@
  */
 package Model;
 
+import Helper.DateTimeHelper;
 import java.util.Date;
 
 /**
@@ -11,14 +12,65 @@ import java.util.Date;
  * @author Tom
  */
 public class RequestToLeave {
+
     private int reqid;
     private Employee employee;
     private int receiver;
     private Date from;
     private Date to;
-    private String type;
+    private int type;
     private String reason;
     private Boolean accept;
+    private Symbol symbol;
+
+    public float getDays() {
+        if (accept = true) {
+            if (DateTimeHelper.getDayOfWeek(from) == 7) {
+                if (type == 2 || type == 3 || type == 4 || type == 5) {
+                    return DateTimeHelper.diffHours(to, from) / 48;
+                }
+            }else
+                if (type == 2 || type == 3 || type == 4 || type == 5) {
+                    return DateTimeHelper.diffHours(to, from) / 24;
+                }
+        }
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "RequestToLeave{" + "reqid=" + reqid + ", receiver=" + receiver + ", from=" + from + ", to=" + to + ", type=" + type + ", reason=" + reason + ", accept=" + accept + '}';
+    }
+
+    public Symbol getSymbol() {
+        return symbol;
+    }
+
+    public String getSymbolAll() {
+        return symbol.getAllday();
+    }
+
+    public String getSymbolHalf() {
+        return symbol.getHalfday();
+    }
+
+    public String getSymbolSat() {
+        return symbol.getSaturday();
+    }
+
+    public void setSymbol(Symbol symbol) {
+        this.symbol = symbol;
+    }
+    private Date fromRemove;
+    private Date toRemove;
+
+    public Date getFromRemove() {
+        return DateTimeHelper.removeTime(from);
+    }
+
+    public Date getToRemove() {
+        return DateTimeHelper.removeTime(DateTimeHelper.addTicks(to, -1000));
+    }
 
     public int getReqid() {
         return reqid;
@@ -60,11 +112,11 @@ public class RequestToLeave {
         this.to = to;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 
@@ -83,5 +135,5 @@ public class RequestToLeave {
     public void setAccept(Boolean accept) {
         this.accept = accept;
     }
-   
+
 }
